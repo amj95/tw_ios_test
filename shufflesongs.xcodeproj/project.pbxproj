@@ -17,6 +17,7 @@
 		C59813EC232FB6E2000FF578 /* shufflesongsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813EB232FB6E2000FF578 /* shufflesongsUITests.swift */; };
 		C59813FC232FC2F2000FF578 /* ViewSongsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813FB232FC2F2000FF578 /* ViewSongsPresenter.swift */; };
 		C59813FE232FC345000FF578 /* ViewSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813FD232FC345000FF578 /* ViewSongsViewController.swift */; };
+		C5981402232FF91C000FF578 /* GetSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5981401232FF91C000FF578 /* GetSongs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C59813ED232FB6E2000FF578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C59813FB232FC2F2000FF578 /* ViewSongsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSongsPresenter.swift; sourceTree = "<group>"; };
 		C59813FD232FC345000FF578 /* ViewSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSongsViewController.swift; sourceTree = "<group>"; };
+		C5981401232FF91C000FF578 /* GetSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSongs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +146,27 @@
 		C59813FA232FC2C7000FF578 /* viewSongs */ = {
 			isa = PBXGroup;
 			children = (
+				C59813FF232FF8DD000FF578 /* domain */,
 				C59813FB232FC2F2000FF578 /* ViewSongsPresenter.swift */,
 				C59813FD232FC345000FF578 /* ViewSongsViewController.swift */,
 			);
 			path = viewSongs;
+			sourceTree = "<group>";
+		};
+		C59813FF232FF8DD000FF578 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				C5981400232FF8E9000FF578 /* usecase */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		C5981400232FF8E9000FF578 /* usecase */ = {
+			isa = PBXGroup;
+			children = (
+				C5981401232FF91C000FF578 /* GetSongs.swift */,
+			);
+			path = usecase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C59813FE232FC345000FF578 /* ViewSongsViewController.swift in Sources */,
+				C5981402232FF91C000FF578 /* GetSongs.swift in Sources */,
 				C59813FC232FC2F2000FF578 /* ViewSongsPresenter.swift in Sources */,
 				C59813CB232FB6DE000FF578 /* ViewController.swift in Sources */,
 				C59813C9232FB6DE000FF578 /* AppDelegate.swift in Sources */,

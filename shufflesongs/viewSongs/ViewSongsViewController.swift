@@ -7,12 +7,18 @@
 //
 
 import UIKit
-class ViewSongsViewController : UITableViewController  {
+class ViewSongsViewController : UITableViewController, ViewSongsDelegate {
+    
     var indicator = UIActivityIndicatorView()
+    private let mViewSongsPresenter = ViewSongsPresenter(getSongs : GetSongs())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureActivityIndicator()
         setLoadingIndicator()
+        
+        mViewSongsPresenter.setViewDelegate(viewSongsDelegate: self)
+        mViewSongsPresenter.getSongs()
     }
     
     @IBAction func shuffleSongs(_ sender: Any) {
@@ -34,6 +40,13 @@ class ViewSongsViewController : UITableViewController  {
     func removeLoadingIndicator(){
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
+    }
+}
+
+extension ViewSongsViewController{
+    func displaySongs() {
+        removeLoadingIndicator()
+        print("rodou")
     }
 }
 

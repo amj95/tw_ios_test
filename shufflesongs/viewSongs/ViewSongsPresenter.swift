@@ -8,6 +8,23 @@
 
 import UIKit
 
-class ViewSongsPresenter: NSObject {
+protocol ViewSongsDelegate: NSObjectProtocol{
+    func displaySongs()
+}
 
+class ViewSongsPresenter {
+    private let mGetSongs: GetSongs
+    weak private var mViewSongsDelegate: ViewSongsDelegate?
+    
+    init(getSongs: GetSongs){
+        self.mGetSongs = getSongs
+    }
+    
+    func setViewDelegate(viewSongsDelegate: ViewSongsDelegate?){
+        self.mViewSongsDelegate = viewSongsDelegate
+    }
+    
+    func getSongs(){
+        self.mViewSongsDelegate?.displaySongs()
+    }
 }
