@@ -13,18 +13,70 @@
         <!--ShuffleSongs-->
         <scene sceneID="Uv9-ft-B8W">
             <objects>
-                <tableViewController id="7Gw-cN-4Su" customClass="ViewSongs" sceneMemberID="viewController">
+                <tableViewController id="7Gw-cN-4Su" customClass="ViewSongsViewController" customModule="shufflesongs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ppE-b8-oOT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="main_color"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="KiM-bL-sEX">
+                            <rect key="frame" x="0.0" y="118" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" name="main_color"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dfd-Fh-qKd">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="dfd-Fh-qKd">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dfd-Fh-qKd" id="TCr-VC-RTj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7J7-w7-3kw">
+                                            <rect key="frame" x="16" y="11" width="343" height="68"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuffle" translatesAutoresizingMaskIntoConstraints="NO" id="Xb3-Fs-mJ0">
+                                                    <rect key="frame" x="8" y="6" width="51" height="66"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="51" id="5ch-hI-3zV"/>
+                                                        <constraint firstAttribute="height" constant="66" id="ZzP-aR-f5r"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDB-t3-cel">
+                                                    <rect key="frame" x="71" y="6" width="264" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-9M-UPh">
+                                                    <rect key="frame" x="71" y="27" width="264" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="fDh-h1-DHJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Xb3-Fs-mJ0" firstAttribute="top" secondItem="7J7-w7-3kw" secondAttribute="top" constant="6" id="9tB-D6-gKE"/>
+                                                <constraint firstAttribute="trailing" secondItem="iRL-9M-UPh" secondAttribute="trailing" constant="8" id="Bq6-gG-taW"/>
+                                                <constraint firstItem="iRL-9M-UPh" firstAttribute="top" secondItem="HDB-t3-cel" secondAttribute="bottom" constant="8" id="Pu0-3T-dIt"/>
+                                                <constraint firstItem="HDB-t3-cel" firstAttribute="top" secondItem="7J7-w7-3kw" secondAttribute="top" constant="6" id="UEJ-dO-Mzh"/>
+                                                <constraint firstItem="Xb3-Fs-mJ0" firstAttribute="leading" secondItem="7J7-w7-3kw" secondAttribute="leading" constant="8" id="aZ9-b2-2G7"/>
+                                                <constraint firstItem="HDB-t3-cel" firstAttribute="leading" secondItem="Xb3-Fs-mJ0" secondAttribute="trailing" constant="12" id="nUp-R2-ZPx"/>
+                                                <constraint firstAttribute="trailing" secondItem="HDB-t3-cel" secondAttribute="trailing" constant="8" id="omO-1s-hrv"/>
+                                                <constraint firstAttribute="bottom" secondItem="iRL-9M-UPh" secondAttribute="bottom" constant="20" id="pyO-ez-hwG"/>
+                                                <constraint firstItem="iRL-9M-UPh" firstAttribute="leading" secondItem="HDB-t3-cel" secondAttribute="leading" id="uuh-a6-rOI"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7J7-w7-3kw" firstAttribute="leading" secondItem="TCr-VC-RTj" secondAttribute="leadingMargin" id="Ja7-pI-esN"/>
+                                        <constraint firstItem="7J7-w7-3kw" firstAttribute="top" secondItem="TCr-VC-RTj" secondAttribute="topMargin" id="S2G-Fy-J9l"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7J7-w7-3kw" secondAttribute="trailing" id="TUi-BD-GBV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="7J7-w7-3kw" secondAttribute="bottom" id="bTv-sF-DZC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -36,12 +88,15 @@
                     <navigationItem key="navigationItem" title="ShuffleSongs" id="dDd-fd-fsM">
                         <barButtonItem key="rightBarButtonItem" title="Shuffle" image="shuffle" id="mSx-lj-g2K">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="shuffleSongs:" destination="7Gw-cN-4Su" id="kqW-BC-SWP"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUa-fy-hpV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="-683"/>
+            <point key="canvasLocation" x="597.60000000000002" y="-683.20839580209895"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ssm-GV-pI2">
