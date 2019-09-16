@@ -15,6 +15,8 @@
 		C59813D6232FB6E2000FF578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C59813D4232FB6E2000FF578 /* LaunchScreen.storyboard */; };
 		C59813E1232FB6E2000FF578 /* shufflesongsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813E0232FB6E2000FF578 /* shufflesongsTests.swift */; };
 		C59813EC232FB6E2000FF578 /* shufflesongsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813EB232FB6E2000FF578 /* shufflesongsUITests.swift */; };
+		C59813FC232FC2F2000FF578 /* ViewSongsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813FB232FC2F2000FF578 /* ViewSongsPresenter.swift */; };
+		C59813FE232FC345000FF578 /* ViewSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813FD232FC345000FF578 /* ViewSongsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		C59813E7232FB6E2000FF578 /* shufflesongsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shufflesongsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C59813EB232FB6E2000FF578 /* shufflesongsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shufflesongsUITests.swift; sourceTree = "<group>"; };
 		C59813ED232FB6E2000FF578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C59813FB232FC2F2000FF578 /* ViewSongsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSongsPresenter.swift; sourceTree = "<group>"; };
+		C59813FD232FC345000FF578 /* ViewSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSongsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +103,11 @@
 		C59813C7232FB6DE000FF578 /* shufflesongs */ = {
 			isa = PBXGroup;
 			children = (
+				C59813FA232FC2C7000FF578 /* viewSongs */,
+				C59813F9232FC27B000FF578 /* view */,
 				C59813C8232FB6DE000FF578 /* AppDelegate.swift */,
 				C59813CA232FB6DE000FF578 /* ViewController.swift */,
-				C59813CC232FB6DE000FF578 /* Main.storyboard */,
 				C59813D2232FB6E2000FF578 /* Assets.xcassets */,
-				C59813D4232FB6E2000FF578 /* LaunchScreen.storyboard */,
 				C59813D7232FB6E2000FF578 /* Info.plist */,
 				C59813CF232FB6DE000FF578 /* shufflesongs.xcdatamodeld */,
 			);
@@ -126,6 +130,24 @@
 				C59813ED232FB6E2000FF578 /* Info.plist */,
 			);
 			path = shufflesongsUITests;
+			sourceTree = "<group>";
+		};
+		C59813F9232FC27B000FF578 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C59813D4232FB6E2000FF578 /* LaunchScreen.storyboard */,
+				C59813CC232FB6DE000FF578 /* Main.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C59813FA232FC2C7000FF578 /* viewSongs */ = {
+			isa = PBXGroup;
+			children = (
+				C59813FB232FC2F2000FF578 /* ViewSongsPresenter.swift */,
+				C59813FD232FC345000FF578 /* ViewSongsViewController.swift */,
+			);
+			path = viewSongs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C59813FE232FC345000FF578 /* ViewSongsViewController.swift in Sources */,
+				C59813FC232FC2F2000FF578 /* ViewSongsPresenter.swift in Sources */,
 				C59813CB232FB6DE000FF578 /* ViewController.swift in Sources */,
 				C59813C9232FB6DE000FF578 /* AppDelegate.swift in Sources */,
 				C59813D1232FB6DE000FF578 /* shufflesongs.xcdatamodeld in Sources */,
