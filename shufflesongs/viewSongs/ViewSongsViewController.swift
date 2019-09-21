@@ -9,6 +9,7 @@
 import UIKit
 class ViewSongsViewController : UITableViewController, ViewSongsDelegate {
     
+    var tableData: [Song] = []
     var indicator = UIActivityIndicatorView()
     private let mViewSongsPresenter = ViewSongsPresenter(getSongs : GetSongs())
     
@@ -19,8 +20,6 @@ class ViewSongsViewController : UITableViewController, ViewSongsDelegate {
         
         mViewSongsPresenter.setViewDelegate(viewSongsDelegate: self)
         mViewSongsPresenter.getSongs()
-        
-        SongsRemoteDataSource.getSongs()
     }
     
     @IBAction func shuffleSongs(_ sender: Any) {
@@ -46,9 +45,10 @@ class ViewSongsViewController : UITableViewController, ViewSongsDelegate {
 }
 
 extension ViewSongsViewController{
-    func displaySongs() {
+    func displaySongs(songs: [Song]) {
         removeLoadingIndicator()
-        print("rodou")
+        tableData = songs
+        self.tableView.reloadData()
     }
 }
 
