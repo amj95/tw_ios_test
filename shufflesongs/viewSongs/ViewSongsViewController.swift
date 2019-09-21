@@ -42,6 +42,19 @@ class ViewSongsViewController : UITableViewController, ViewSongsDelegate {
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as!
+        SongTableViewCell
+        let song = tableData[indexPath.row]
+        cell.prepare(with: song)
+        return cell
+    }
+    
 }
 
 extension ViewSongsViewController{
