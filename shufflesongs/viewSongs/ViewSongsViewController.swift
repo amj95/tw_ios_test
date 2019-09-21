@@ -19,6 +19,8 @@ class ViewSongsViewController : UITableViewController, ViewSongsDelegate {
         
         mViewSongsPresenter.setViewDelegate(viewSongsDelegate: self)
         mViewSongsPresenter.getSongs()
+        
+        SongsRemoteDataSource.getSongs()
     }
     
     @IBAction func shuffleSongs(_ sender: Any) {
