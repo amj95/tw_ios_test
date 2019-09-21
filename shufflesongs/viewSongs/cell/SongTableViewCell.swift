@@ -28,5 +28,17 @@ class SongTableViewCell: UITableViewCell {
     func prepare(with song: Song){
         tv_music.text = song.trackName
         tv_artist.text = song.artistName
+        DispatchQueue.global().async { [weak self] in
+            if let urlPath = song.artworkURL{
+                if let data = try? Data(contentsOf: URL(string: urlPath)!){
+                    if let image = UIImage(data: data){
+                        DispatchQueue.main.async {
+                            self?.iv_bullet.image = image
+                        }
+                    }
+                }
+            }
+            
+        }
     }
 }

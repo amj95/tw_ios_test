@@ -14,7 +14,11 @@ class GetSongs{
     
     func executeUseCase(onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
         SongsRemoteDataSource.getSongs(onComplete: { (Song) in
-            onComplete(Song)
+            var response: [Song] = []
+            for temp in Song{
+                if(temp.wrapperType == "track") {response.append(temp)}
+            }
+            onComplete(response)
         }) { (error) in
             onError(error)
         }
