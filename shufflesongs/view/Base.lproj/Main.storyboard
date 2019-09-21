@@ -24,7 +24,7 @@
                             <color key="backgroundColor" name="main_color"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="dfd-Fh-qKd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="dfd-Fh-qKd" customClass="SongTableViewCell" customModule="shufflesongs" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dfd-Fh-qKd" id="TCr-VC-RTj">
@@ -44,7 +44,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDB-t3-cel">
                                                     <rect key="frame" x="71" y="6" width="264" height="13"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="title_color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-9M-UPh">
@@ -53,11 +53,11 @@
                                                         <constraint firstAttribute="height" constant="21" id="fDh-h1-DHJ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" name="main_color"/>
                                             <constraints>
                                                 <constraint firstItem="Xb3-Fs-mJ0" firstAttribute="top" secondItem="7J7-w7-3kw" secondAttribute="top" constant="6" id="9tB-D6-gKE"/>
                                                 <constraint firstAttribute="trailing" secondItem="iRL-9M-UPh" secondAttribute="trailing" constant="8" id="Bq6-gG-taW"/>
@@ -71,6 +71,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" name="main_color"/>
                                     <constraints>
                                         <constraint firstItem="7J7-w7-3kw" firstAttribute="leading" secondItem="TCr-VC-RTj" secondAttribute="leadingMargin" id="Ja7-pI-esN"/>
                                         <constraint firstItem="7J7-w7-3kw" firstAttribute="top" secondItem="TCr-VC-RTj" secondAttribute="topMargin" id="S2G-Fy-J9l"/>
@@ -78,6 +79,11 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="7J7-w7-3kw" secondAttribute="bottom" id="bTv-sF-DZC"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iv_bullet" destination="Xb3-Fs-mJ0" id="Hri-1j-E9Y"/>
+                                    <outlet property="tv_artist" destination="iRL-9M-UPh" id="C2X-do-oN2"/>
+                                    <outlet property="tv_music" destination="HDB-t3-cel" id="40J-Y6-GCR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -123,6 +129,9 @@
         <image name="shuffle" width="28" height="24"/>
         <namedColor name="main_color">
             <color red="0.21176470588235294" green="0.14901960784313725" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="title_color">
+            <color red="0.86274509803921573" green="0.40784313725490196" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

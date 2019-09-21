@@ -10,11 +10,11 @@ import Foundation
 // MARK: - SongsResponse
 struct SongsResponse: Codable {
     let resultCount: Int
-    let results: [Result]
+    let results: [Song]
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Song: Codable {
     let id: Int
     let wrapperType: String
     let artistType: String?
@@ -24,7 +24,6 @@ struct Result: Codable {
     let collectionID: Int?
     let trackName, country: String?
     let artworkURL: String?
-    let releaseDate: Date?
     let artistID: Int?
     
     enum CodingKeys: String, CodingKey {
@@ -32,7 +31,6 @@ struct Result: Codable {
         case collectionID = "collectionId"
         case trackName, country
         case artworkURL = "artworkUrl"
-        case releaseDate
         case artistID = "artistId"
     }
 }

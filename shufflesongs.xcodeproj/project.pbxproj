@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C5653F18233685DF00E61622 /* SongsRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5653F17233685DF00E61622 /* SongsRemoteDataSource.swift */; };
+		C5653F1B233690B500E61622 /* SongsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5653F1A233690B500E61622 /* SongsDataSource.swift */; };
+		C5653F1E23369AB100E61622 /* SongsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5653F1D23369AB100E61622 /* SongsRepository.swift */; };
+		C5653F212336ACC400E61622 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5653F202336ACC400E61622 /* SongTableViewCell.swift */; };
 		C59813C9232FB6DE000FF578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813C8232FB6DE000FF578 /* AppDelegate.swift */; };
-		C59813CB232FB6DE000FF578 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813CA232FB6DE000FF578 /* ViewController.swift */; };
 		C59813CE232FB6DE000FF578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C59813CC232FB6DE000FF578 /* Main.storyboard */; };
 		C59813D1232FB6DE000FF578 /* shufflesongs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C59813CF232FB6DE000FF578 /* shufflesongs.xcdatamodeld */; };
 		C59813D3232FB6E2000FF578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C59813D2232FB6E2000FF578 /* Assets.xcassets */; };
@@ -41,9 +43,11 @@
 
 /* Begin PBXFileReference section */
 		C5653F17233685DF00E61622 /* SongsRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsRemoteDataSource.swift; sourceTree = "<group>"; };
+		C5653F1A233690B500E61622 /* SongsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsDataSource.swift; sourceTree = "<group>"; };
+		C5653F1D23369AB100E61622 /* SongsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsRepository.swift; sourceTree = "<group>"; };
+		C5653F202336ACC400E61622 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		C59813C5232FB6DE000FF578 /* shufflesongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shufflesongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C59813C8232FB6DE000FF578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C59813CA232FB6DE000FF578 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C59813CD232FB6DE000FF578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C59813D0232FB6DE000FF578 /* shufflesongs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = shufflesongs.xcdatamodel; sourceTree = "<group>"; };
 		C59813D2232FB6E2000FF578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +98,30 @@
 			path = remote;
 			sourceTree = "<group>";
 		};
+		C5653F192336908C00E61622 /* datasource */ = {
+			isa = PBXGroup;
+			children = (
+				C5653F1A233690B500E61622 /* SongsDataSource.swift */,
+			);
+			path = datasource;
+			sourceTree = "<group>";
+		};
+		C5653F1C23369A9500E61622 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				C5653F1D23369AB100E61622 /* SongsRepository.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		C5653F1F2336AC8E00E61622 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				C5653F202336ACC400E61622 /* SongTableViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		C59813BC232FB6DE000FF578 = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +151,6 @@
 				C59813D7232FB6E2000FF578 /* Info.plist */,
 				C59813CF232FB6DE000FF578 /* shufflesongs.xcdatamodeld */,
 				C59813F9232FC27B000FF578 /* view */,
-				C59813CA232FB6DE000FF578 /* ViewController.swift */,
 				C59813FA232FC2C7000FF578 /* viewSongs */,
 			);
 			path = shufflesongs;
@@ -159,6 +186,7 @@
 		C59813FA232FC2C7000FF578 /* viewSongs */ = {
 			isa = PBXGroup;
 			children = (
+				C5653F1F2336AC8E00E61622 /* cell */,
 				C59813FF232FF8DD000FF578 /* domain */,
 				C59813FB232FC2F2000FF578 /* ViewSongsPresenter.swift */,
 				C59813FD232FC345000FF578 /* ViewSongsViewController.swift */,
@@ -185,6 +213,8 @@
 		C598140323300A0C000FF578 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				C5653F1C23369A9500E61622 /* repository */,
+				C5653F192336908C00E61622 /* datasource */,
 				C5653F16233685AF00E61622 /* remote */,
 				C598140623300E67000FF578 /* model */,
 			);
@@ -332,12 +362,14 @@
 			files = (
 				C598140523300E5B000FF578 /* Song.swift in Sources */,
 				C59813FE232FC345000FF578 /* ViewSongsViewController.swift in Sources */,
+				C5653F212336ACC400E61622 /* SongTableViewCell.swift in Sources */,
 				C5981402232FF91C000FF578 /* GetSongs.swift in Sources */,
 				C59813FC232FC2F2000FF578 /* ViewSongsPresenter.swift in Sources */,
-				C59813CB232FB6DE000FF578 /* ViewController.swift in Sources */,
 				C59813C9232FB6DE000FF578 /* AppDelegate.swift in Sources */,
 				C59813D1232FB6DE000FF578 /* shufflesongs.xcdatamodeld in Sources */,
+				C5653F1E23369AB100E61622 /* SongsRepository.swift in Sources */,
 				C5653F18233685DF00E61622 /* SongsRemoteDataSource.swift in Sources */,
+				C5653F1B233690B500E61622 /* SongsDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

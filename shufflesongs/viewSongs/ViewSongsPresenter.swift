@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ViewSongsDelegate: NSObjectProtocol{
-    func displaySongs()
+    func displaySongs(songs: [Song])
 }
 
 class ViewSongsPresenter {
@@ -25,6 +25,16 @@ class ViewSongsPresenter {
     }
     
     func getSongs(){
-        self.mViewSongsDelegate?.displaySongs()
+        mGetSongs.executeUseCase(onComplete: { (Song) in
+            DispatchQueue.main.async {
+                self.shuffleSongs(songs: Song)
+            }
+        }) { (error) in
+            
+        }
+    }
+    
+    func shuffleSongs(songs: [Song]){
+        self.mViewSongsDelegate?.displaySongs(songs: songs)
     }
 }
