@@ -8,13 +8,19 @@
 
 import Foundation
 
+//Usecase to get Songs
+
 class GetSongs{
     
     init(){}
     
-    func executeUseCase(onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
-        SongsRemoteDataSource.getSongs(onComplete: { (Song) in
-            onComplete(Song)
+    func executeUseCase(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
+        SongsRemoteDataSource.getSongs(artistId: artistId, onComplete: { (Song) in
+            var response: [Song] = []
+            for temp in Song{
+                if(temp.wrapperType == "track") {response.append(temp)}
+            }
+            onComplete(response)
         }) { (error) in
             onError(error)
         }

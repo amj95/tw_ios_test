@@ -23,7 +23,7 @@ class ViewSongsViewController : UITableViewController, ViewSongsDelegate {
     }
     
     @IBAction func shuffleSongs(_ sender: Any) {
-        print("button clicked !")
+        mViewSongsPresenter.shuffleSongs()
     }
     
     func configureActivityIndicator() {
