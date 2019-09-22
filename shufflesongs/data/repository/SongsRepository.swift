@@ -14,8 +14,8 @@ class SongsRepository{
     
     private init(){}
     
-    func getSongs(onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
-        SongsRemoteDataSource.getSongs(onComplete: { (Song) in
+    func getSongs(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
+        SongsRemoteDataSource.getSongs(artistId: artistId, onComplete: { (Song) in
             onComplete(Song)
         }) { (error) in
             onError(error)

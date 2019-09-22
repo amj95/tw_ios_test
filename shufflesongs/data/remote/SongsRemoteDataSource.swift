@@ -18,7 +18,7 @@ enum RequestError{
 }
 class SongsRemoteDataSource{
     
-    private static let basePath = "https://us-central1-tw-exercicio-mobile.cloudfunctions.net/lookup?id=358714030&limit=5"
+    private static let basePath = "https://us-central1-tw-exercicio-mobile.cloudfunctions.net/lookup?limit=5"
     private static let configuration: URLSessionConfiguration = {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 30.0
@@ -26,8 +26,8 @@ class SongsRemoteDataSource{
     }()
     private static let session = URLSession(configuration: configuration)
     
-    class func getSongs(onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
-        guard let url = URL(string: basePath) else {
+    class func getSongs(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
+        guard let url = URL(string: basePath + "&id=" + artistId) else {
             onError(.url)
             return
         }

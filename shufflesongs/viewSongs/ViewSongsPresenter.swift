@@ -15,6 +15,8 @@ protocol ViewSongsDelegate: NSObjectProtocol{
 class ViewSongsPresenter {
     private let mGetSongs: GetSongs
     weak private var mViewSongsDelegate: ViewSongsDelegate?
+    var data: [Song] = []
+    var artistIds: [String] = ["909253","1171421960","358714030","1419227","264111789"]
     
     init(getSongs: GetSongs){
         self.mGetSongs = getSongs
@@ -25,16 +27,19 @@ class ViewSongsPresenter {
     }
     
     func getSongs(){
-        mGetSongs.executeUseCase(onComplete: { (Song) in
-            DispatchQueue.main.async {
-                self.shuffleSongs(songs: Song)
+        for artistId in artistIds{
+            mGetSongs.executeUseCase(artistId: artistId,onComplete: { (Song) in
+                DispatchQueue.main.async {
+                    self.data += Song
+                    self.shuffleSongs()
+                }
+            }) { (error) in
+                
             }
-        }) { (error) in
-            
         }
     }
     
-    func shuffleSongs(songs: [Song]){
-        self.mViewSongsDelegate?.displaySongs(songs: songs)
+    func shuffleSongs(){
+        self.mViewSongsDelegate?.displaySongs(songs: self.data)
     }
 }
