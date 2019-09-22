@@ -40,6 +40,40 @@ class ViewSongsPresenter {
     }
     
     func shuffleSongs(){
-        self.mViewSongsDelegate?.displaySongs(songs: self.data)
+        var shuffledSogs: [Song] = []
+        
+        while(self.data.count > 0){
+            
+            let randomPos = Int.random(in: 0 ..< self.data.count)
+            let songRandom: Song = self.data[randomPos]
+            
+            if(shuffledSogs.count == 0){// case array is empty adds the first
+                shuffledSogs.append(songRandom)
+                self.data.remove(at: randomPos)
+            }else{
+                let lastSong: Song = shuffledSogs[(shuffledSogs.count-1)]
+                if(lastSong.artistName != songRandom.artistName){ // if last item is not same artist
+                    shuffledSogs.append(songRandom)
+                    self.data.remove(at: randomPos)
+                }else{
+                    if(!isShufflable()){//if is not more shufflable
+                        break
+                    }
+                }
+            }
+        }
+        
+        self.data = shuffledSogs + self.data
+        self.mViewSongsDelegate?.displaySongs(songs: shuffledSogs)
+    }
+    
+    func isShufflable()->Bool{
+        let temp = self.data[0]
+        for song in self.data{
+            if(song.artistName != temp.artistName){
+                return true
+            }
+        }
+        return false
     }
 }

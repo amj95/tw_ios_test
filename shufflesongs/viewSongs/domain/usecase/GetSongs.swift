@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Usecase to get Songs
+
 class GetSongs{
     
     init(){}
