@@ -31,7 +31,7 @@ class ViewSongsPresenter {
             mGetSongs.executeUseCase(artistId: artistId,onComplete: { (Song) in
                 DispatchQueue.main.async {
                     self.data += Song
-                    self.shuffleSongs()
+                    self.shuffleSongs(songs: self.data)
                 }
             }) { (error) in
                 
@@ -39,22 +39,27 @@ class ViewSongsPresenter {
         }
     }
     
-    func shuffleSongs(){
+    func actionShuffleSongs(){
+        self.shuffleSongs(songs: self.data)
+    }
+    
+    func shuffleSongs(songs: [Song]){
+        var toShuffleSongs = songs
         var shuffledSogs: [Song] = []
         
-        while(self.data.count > 0){
+        while(toShuffleSongs.count > 0){
             
-            let randomPos = Int.random(in: 0 ..< self.data.count)
-            let songRandom: Song = self.data[randomPos]
+            let randomPos = Int.random(in: 0 ..< toShuffleSongs.count)
+            let songRandom: Song = toShuffleSongs[randomPos]
             
             if(shuffledSogs.count == 0){// case array is empty adds the first
                 shuffledSogs.append(songRandom)
-                self.data.remove(at: randomPos)
+                toShuffleSongs.remove(at: randomPos)
             }else{
                 let lastSong: Song = shuffledSogs[(shuffledSogs.count-1)]
                 if(lastSong.artistName != songRandom.artistName){ // if last item is not same artist
                     shuffledSogs.append(songRandom)
-                    self.data.remove(at: randomPos)
+                    toShuffleSongs.remove(at: randomPos)
                 }else{
                     if(!isShufflable()){//if is not more shufflable
                         break
@@ -63,7 +68,7 @@ class ViewSongsPresenter {
             }
         }
         
-        self.data = shuffledSogs + self.data
+        self.data = shuffledSogs + toShuffleSongs
         self.mViewSongsDelegate?.displaySongs(songs: shuffledSogs)
     }
     
