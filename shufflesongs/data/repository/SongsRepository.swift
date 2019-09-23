@@ -10,7 +10,7 @@ import Foundation
 
 // Repository of Songs
 
-class SongsRepository{
+class SongsRepository : SongsDataSource {
     
     static let INSTANCE = SongsRepository()
     

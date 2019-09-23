@@ -16,14 +16,17 @@ enum RequestError{
     case responseStatusCode(code: Int)
     case invalidJSON
 }
+
 class SongsRemoteDataSource{
     
     private static let basePath = "https://us-central1-tw-exercicio-mobile.cloudfunctions.net/lookup?limit=5"
+    
     private static let configuration: URLSessionConfiguration = {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 30.0
         return config
     }()
+    
     private static let session = URLSession(configuration: configuration)
     
     class func getSongs(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
@@ -56,7 +59,7 @@ class SongsRemoteDataSource{
             } else{
                 onError(.taskError(error: error!))
             }
-    }
+        }
         dataTask.resume()
     }
 }

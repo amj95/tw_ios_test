@@ -15,7 +15,7 @@ class GetSongs{
     init(){}
     
     func executeUseCase(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
-        SongsRemoteDataSource.getSongs(artistId: artistId, onComplete: { (Song) in
+        SongsRepository.INSTANCE.getSongs(artistId: artistId, onComplete: { (Song) in
             var response: [Song] = []
             for temp in Song{
                 if(temp.wrapperType == "track") {response.append(temp)}
