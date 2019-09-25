@@ -12,7 +12,7 @@ import XCTest
 class ViewSongsTest: XCTestCase {
 
     var viewController: ViewSongsViewController!
-    private let viewPresenter = ViewSongsPresenter(getSongs : GetSongs())
+    private let viewPresenter = ViewSongsPresenter(getSongs : GetSongs(songsRepository: SongsRepository.getInstance(remoteDataSource: SongsRemoteDataSource.getInstance())))
     
     func testExpectedOrderItems(){
         viewPresenter.setViewDelegate(viewSongsDelegate: viewController)

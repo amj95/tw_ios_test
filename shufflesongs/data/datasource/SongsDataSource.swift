@@ -7,7 +7,9 @@
 //
 
 import Foundation
-
+/*
+    Main entry point for accessing songs data
+ */
 protocol SongsDataSource{
     func getSongs(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void)
 }

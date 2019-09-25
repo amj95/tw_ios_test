@@ -16,20 +16,36 @@ enum RequestError{
     case responseStatusCode(code: Int)
     case invalidJSON
 }
-
-class SongsRemoteDataSource{
+/**
+    Implementation of the data source that get songs from remote server
+ */
+class SongsRemoteDataSource : SongsDataSource{
     
-    private static let basePath = "https://us-central1-tw-exercicio-mobile.cloudfunctions.net/lookup?limit=5"
-    
-    private static let configuration: URLSessionConfiguration = {
+    private static var INSTANCE: SongsRemoteDataSource? = nil
+    private let basePath = "https://us-central1-tw-exercicio-mobile.cloudfunctions.net/lookup?limit=5"
+    private let configuration: URLSessionConfiguration = {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 30.0
         return config
     }()
+    private var session : URLSession
     
-    private static let session = URLSession(configuration: configuration)
+    public static func getInstance() -> SongsRemoteDataSource{
+        if(INSTANCE == nil){
+            INSTANCE = SongsRemoteDataSource()
+        }
+        return INSTANCE!
+    }
     
-    class func getSongs(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
+    // Prevents direct instantiation.
+    init(){
+        session = URLSession(configuration: configuration)
+    }
+    
+    /*:
+     - Note: onError is fired if the server can't be contacted or returns error
+     */
+    func getSongs(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
         guard let url = URL(string: basePath + "&id=" + artistId) else {
             onError(.url)
             return

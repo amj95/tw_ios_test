@@ -8,14 +8,20 @@
 
 import Foundation
 
-//Usecase to get Songs
+/*
+    Fetches the list of songs.
+*/
 
 class GetSongs{
     
-    init(){}
+    private var mSongsRepository: SongsRepository
+    
+    init(songsRepository: SongsRepository){
+        mSongsRepository = songsRepository
+    }
     
     func executeUseCase(artistId: String, onComplete: @escaping ([Song]) -> Void, onError: @escaping (RequestError) -> Void) {
-        SongsRepository.INSTANCE.getSongs(artistId: artistId, onComplete: { (Song) in
+        mSongsRepository.getSongs(artistId: artistId, onComplete: { (Song) in
             var response: [Song] = []
             for temp in Song{
                 if(temp.wrapperType == "track") {response.append(temp)}

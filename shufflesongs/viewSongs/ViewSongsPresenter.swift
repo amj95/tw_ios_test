@@ -13,6 +13,7 @@ protocol ViewSongsDelegate: NSObjectProtocol{
 }
 
 class ViewSongsPresenter {
+    
     private let mGetSongs: GetSongs
     weak private var mViewSongsDelegate: ViewSongsDelegate?
     var data: [Song] = []

@@ -11,7 +11,7 @@ class ViewSongsViewController : UITableViewController, ViewSongsDelegate {
     
     var tableData: [Song] = []
     var indicator = UIActivityIndicatorView()
-    private let mViewSongsPresenter = ViewSongsPresenter(getSongs : GetSongs())
+    private let mViewSongsPresenter = ViewSongsPresenter(getSongs : GetSongs(songsRepository: SongsRepository.getInstance(remoteDataSource: SongsRemoteDataSource.getInstance())))
     
     override func viewDidLoad() {
         super.viewDidLoad()
